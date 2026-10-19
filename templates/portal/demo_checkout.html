@@ -1,0 +1,5 @@
+{% extends 'portal/base.html' %}
+{% block title %}Demo checkout · Postgraduate Payments{% endblock %}
+{% block content %}
+<section class="success-panel demo-checkout"><p class="eyebrow">LOCAL PAYMENT TEST</p><h1>Demo checkout</h1><p class="muted">This screen simulates the payment confirmation step. It does not contact Paystack or transfer funds.</p><div class="receipt-summary"><div><span>STUDENT</span><strong>{{ payment.student.full_name }}</strong></div><div><span>REFERENCE</span><strong>{{ payment.reference }}</strong></div><div><span>ACADEMIC TERM</span><strong>{{ payment.term.session.name }} · {{ payment.term.semester }}</strong></div><div><span>AMOUNT</span><strong>₦{{ payment.amount_naira|floatformat:2 }}</strong></div></div><div class="notice demo-notice">TEST MODE ONLY · This creates no registration-portal clearance.</div><form method="post" class="demo-actions">{% csrf_token %}<button class="button primary" type="submit" name="action" value="complete">Simulate successful payment</button><button class="button secondary" type="submit" name="action" value="cancel">Cancel test</button></form></section>
+{% endblock %}

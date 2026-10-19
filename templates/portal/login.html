@@ -1,0 +1,13 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% block title %}Student sign in · Postgraduate Payments{% endblock %}
+{% block content %}
+<section class="login-layout">
+  <div class="login-copy"><p class="eyebrow">POSTGRADUATE SCHOOL</p><h1>Course registration<br>begins here.</h1><p>Sign in with your matric number to review the active semester fee and complete payment.</p><div class="academic-stamp"><img class="academic-stamp-logo" src="{% static 'portal/acu-logo.png' %}" alt="Ajayi Crowther University crest"><div>STUDENT<br>PAYMENTS</div></div></div>
+  <div class="login-panel"><p class="eyebrow">STUDENT ACCESS</p><h2>Welcome back</h2><p class="muted">Use your matric number and password to continue.</p>
+    {% if error %}<div class="notice error" role="alert">{{ error }}</div>{% endif %}
+    <form method="post" class="stack">{% csrf_token %}<label for="id_matric_number">Matric number</label><input id="id_matric_number" name="matric_number" autocomplete="username" placeholder="e.g. PG/2026/001" required value="{{ form.matric_number.value|default:'' }}"><label for="id_password">Password</label><input id="id_password" name="password" type="password" autocomplete="current-password" required><button class="button primary" type="submit">Sign in <span aria-hidden="true">→</span></button></form>
+    <p class="fineprint">First time signing in? Your initial password is your matric number. You will be asked to change it.</p>
+  </div>
+</section>
+{% endblock %}

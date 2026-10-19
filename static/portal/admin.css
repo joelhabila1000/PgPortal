@@ -1,0 +1,12 @@
+:root{--primary:#0a1172;--secondary:#070d56;--accent:#ff9900;--header-bg:#0a1172;--header-color:#fff;--breadcrumbs-bg:#070d56;--breadcrumbs-fg:#fff;--link-fg:#0a1172;--link-hover-color:#070d56;--hairline-color:#e0e4e9;--selected-row:#fff5e5;--button-bg:#0a1172;--default-button-bg:#2d3845;--close-button-bg:#5d6975;--delete-button-bg:#b42318}
+#header{border-bottom:3px solid #ff9900}
+.acu-admin-brand{display:flex;align-items:center;gap:12px;color:#fff!important;text-decoration:none!important;font-size:16px;font-weight:700}
+.acu-admin-brand img{width:45px;height:45px;object-fit:contain;flex:none}
+.acu-admin-brand small{display:block;margin-top:2px;color:#ffcf80;font-size:9px;font-weight:600;letter-spacing:.12em}
+#branding h1,#branding h1 a{color:#fff}
+#user-tools a:focus,#user-tools a:hover{color:#ffcf80}
+.module h2,.module caption,.inline-group h2{background:#0a1172}
+.selector-chosen h2{background:#0a1172!important}
+input:focus,textarea:focus,select:focus,.vTextField:focus{border-color:#ff9900!important;box-shadow:0 0 0 2px rgba(255,153,0,.18)!important}
+tr.selected{background:#fff5e5}
+@media(max-width:767px){.acu-admin-brand{font-size:13px}.acu-admin-brand img{width:36px;height:36px}.acu-admin-brand small{font-size:8px}}

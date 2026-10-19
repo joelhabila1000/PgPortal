@@ -1,0 +1,22 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <title>{% block title %}Postgraduate Payments{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'portal/app.css' %}?v=4">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{% if user.is_authenticated %}{% url 'dashboard' %}{% else %}{% url 'login' %}{% endif %}"><img class="brand-logo" src="{% static 'portal/acu-logo.png' %}" alt="Ajayi Crowther University crest"><span>POSTGRADUATE SCHOOL<small>COURSE REGISTRATION PAYMENTS</small></span></a>
+    {% if user.is_authenticated %}<nav><span class="identity">{{ user.matric_number|default:user.username }}</span>{% if user.is_staff %}<a href="{% url 'staff_home' %}#overview">Overview</a><a href="{% url 'staff_home' %}#payments">Payments</a><a href="{% url 'staff_home' %}#students">Students</a><a href="{% url 'staff_home' %}#terms">Setup</a>{% endif %}<form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="nav-button" type="submit">Sign out</button></form></nav>{% endif %}
+  </header>
+  <main class="page">
+    {% for message in messages %}<div class="notice {{ message.tags }}">{{ message }}</div>{% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer>Postgraduate School <span>·</span> Secure payments in NGN</footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{% extends 'portal/base.html' %}
+{% block title %}{% if student %}Edit student{% else %}Add student{% endif %} · Postgraduate Payments{% endblock %}
+{% block content %}
+<section class="narrow-page"><p class="eyebrow">STUDENT RECORDS</p><h1>{% if student %}Edit student{% else %}Add a student{% endif %}</h1><form method="post" class="stack form-panel">{% csrf_token %}{% for field in form %}<label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% for error in field.errors %}<p class="field-error">{{ error }}</p>{% endfor %}{% endfor %}{% if student %}<label class="check-label"><input type="checkbox" name="reset_password"> Reset password to matric number and require a change</label>{% else %}<p class="fineprint">New students receive their matric number as the initial password and must change it on first sign-in.</p>{% endif %}<button class="button primary" type="submit">Save student</button></form></section>
+{% endblock %}
